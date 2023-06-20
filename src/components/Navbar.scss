@@ -1,12 +1,36 @@
-.navbar {
-  text-align: center;
-  color: #333;
-  background-color: #ffffff;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  width: fit-content;
-  padding: 12px;
-  border-radius: 9px;
-  margin: 30px auto;
+  padding: 10px 32px;
+  background-color: #144c66;
 
-  box-shadow: 0px 2px 16px rgba(255, 255, 255, 0.3);
+  .navbar__links {
+    display: flex;
+
+    list-style: none;
+
+    .btn__dark-mode {
+      background-color: #1e1e1e;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .sun__icon {
+        color: #ffe066;
+      }
+    }
+  }
 }
+
+// Dark Mode
+// .dark .header {
+//   background-color: red;
+// }
