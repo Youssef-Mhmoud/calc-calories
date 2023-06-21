@@ -1,5 +1,9 @@
 .loader-page {
   h2 {
     color: #fff !important;
+
+    @media (max-width: 767px) {
+      font-size: 24px;
+    }
   }
 }

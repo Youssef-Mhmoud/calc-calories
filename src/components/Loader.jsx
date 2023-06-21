@@ -10,7 +10,7 @@ const LoaderPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setZIndex({ zIndex: "-1" });
-    }, 3500);
+    }, 3000);
   });
 
   return (
