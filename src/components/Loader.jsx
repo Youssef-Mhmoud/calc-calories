@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./Loader.scss";
+import Image from "../assets/barbell-3573104_1280.png";
 
 const LoaderPage = () => {
   const [zIndex, setZIndex] = useState();
@@ -15,8 +16,7 @@ const LoaderPage = () => {
   return (
     <div className="loader-page" style={zIndex}>
       <h2>{t("BE FITNESS")}</h2>
-      <br />
-      <p>...</p>
+      <img src={Image} alt="" className="img__loader" />
     </div>
   );
 };

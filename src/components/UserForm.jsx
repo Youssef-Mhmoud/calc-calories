@@ -112,8 +112,6 @@ const UserForm = () => {
 
     if (name && weight && activity && gender) {
       navigate("/user-data");
-      setName("");
-      setWeight("");
     }
   };
 

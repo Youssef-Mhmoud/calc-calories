@@ -17,7 +17,7 @@ const UserData = () => {
           {t("for")}
         </p>
         <p className="bmr">
-          {t("bmr")}: <span>{bmr}</span>
+          {t("bmr")} <span>{bmr}</span>
         </p>
         <div className="cal__box">
           <p className="min__cal">

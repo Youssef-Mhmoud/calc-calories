@@ -5,7 +5,7 @@ import { ThemeContext } from "./context/theme-context";
 import UserForm from "./components/UserForm";
 import { Route, Routes } from "react-router-dom";
 import UserData from "./pages/UserData";
-import Layout from "./components/layout";
+import Layout from "./components/Layout";
 
 function App() {
   const { theme } = useContext(ThemeContext);

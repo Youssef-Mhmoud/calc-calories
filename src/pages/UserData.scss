@@ -25,14 +25,35 @@
   }
 
   .bmr {
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+    margin: 30px auto;
+    box-shadow: 0px 2px 17px rgba(0, 0, 0, 0.2);
+    border-radius: 9px;
+    padding: 20px;
+
     font-size: 24px;
 
     span {
+      margin-top: 24px;
       background-color: #fff;
       color: #1e1e1e;
       padding: 0 8px;
       border-radius: 9px;
       font-weight: 800;
+
+      .App & {
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      .dark & {
+        background-color: #fff;
+
+        color: #000;
+      }
     }
   }
 
@@ -46,13 +67,13 @@
     font-size: 24px;
 
     .min__cal {
-      box-shadow: 0px 2px 17px rgba(30, 30, 30, 0.3);
+      box-shadow: 0px 2px 17px rgba(0, 0, 0, 0.2);
       border-radius: 9px;
       padding: 20px;
     }
 
     .max__cal {
-      box-shadow: 0px 2px 17px rgba(30, 30, 30, 0.3);
+      box-shadow: 0px 2px 17px rgba(0, 0, 0, 0.2);
       border-radius: 9px;
       padding: 20px;
     }
@@ -81,7 +102,6 @@
     // Responsive
     @media (max-width: 768px) {
       padding-top: 30px;
-      border-top: 1px solid #0000008b;
       flex-direction: column;
     }
   }

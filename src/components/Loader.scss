@@ -5,12 +5,26 @@
     color: #fff !important;
 
     @media (max-width: 767px) {
-      font-size: 24px;
+      font-size: 32px;
     }
   }
 
-  p {
-    font-size: 100px;
-    color: white;
+  .img__loader {
+    width: 200px;
+    animation: barAnimation 3s linear forwards infinite;
+  }
+}
+
+@keyframes barAnimation {
+  0% {
+    transform: translateY(50px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(50px);
   }
 }
