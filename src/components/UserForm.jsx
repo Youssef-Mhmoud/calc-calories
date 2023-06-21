@@ -3,18 +3,16 @@ import "./UserForm.scss";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/userData-context";
 import { useNavigate } from "react-router-dom";
-import { LoaderContext } from "../context/loader-context";
+import LoaderPage from "./Loader";
 
 const UserForm = () => {
-  const [t] = useTranslation();
+  const [t, i18n] = useTranslation();
   const [weight, setWeight] = useState();
   const [gender, setGender] = useState();
   const [activity, setActivity] = useState();
 
   const { setName, setBMR, setMinCalorie, setMaxCalorie } =
     useContext(UserContext);
-
-  const { setLoader } = useContext(LoaderContext);
 
   const navigate = useNavigate();
 
@@ -67,14 +65,20 @@ const UserForm = () => {
       setMaxCalorie(+weight * 0.9 * 24 * 1);
     }
 
-    setLoader(true);
     navigate("/user-data");
   };
 
   return (
     <>
-      <h2 className="title">{t("title")}</h2>
-      <form action="" className="form" onSubmit={submitHandler}>
+      <h2 className="title" dir={`${i18n.language === "ar" && "rtl"}`}>
+        {t("title")}
+      </h2>
+      <form
+        action=""
+        className="form"
+        onSubmit={submitHandler}
+        dir={`${i18n.language === "ar" && "rtl"}`}
+      >
         {/* User Name */}
         <div className="user__name">
           <label htmlFor="username">{t("Name")}</label>
@@ -172,6 +176,7 @@ const UserForm = () => {
           Submit
         </button>
       </form>
+      <LoaderPage />
     </>
   );
 };

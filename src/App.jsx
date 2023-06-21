@@ -1,8 +1,7 @@
-import Navbar from "./components/Navbar";
 import "./App.scss";
 import { useContext } from "react";
 import { ThemeContext } from "./context/theme-context";
-import { LoaderContext } from "./context/loader-context";
+// import { LoaderContext } from "./context/loader-context";
 import UserForm from "./components/UserForm";
 import { Route, Routes } from "react-router-dom";
 import UserData from "./pages/UserData";
@@ -10,7 +9,7 @@ import Layout from "./components/layout";
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  const { loader } = useContext(LoaderContext);
+  // const { loader } = useContext(LoaderContext);
 
   return (
     <>
@@ -22,7 +21,6 @@ function App() {
           </Route>
         </Routes>
       </div>
-      {loader && <div className="loader">Loading...</div>}
     </>
   );
 }

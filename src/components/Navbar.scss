@@ -6,11 +6,11 @@
   padding: 10px 32px;
   background-color: #144c66;
 
-  &.rtl {
-    flex-direction: row-reverse;
-  }
-
   .logo {
+    a {
+      text-decoration: none;
+    }
+
     h1 {
       color: #fff;
     }
