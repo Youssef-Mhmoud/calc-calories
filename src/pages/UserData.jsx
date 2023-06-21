@@ -17,15 +17,15 @@ const UserData = () => {
           {t("for")}
         </p>
         <p className="bmr">
-          {t("bmr")} <span>{bmr}</span>
+          {t("bmr")} <span>{bmr.toFixed(1)}</span>
         </p>
         <div className="cal__box">
           <p className="min__cal">
             {t("minCal")} <br />
-            <span>{minCalorie}</span>
+            <span>{minCalorie.toFixed(1)}</span>
           </p>
           <p className="max__cal">
-            {t("maxCal")} <br /> <span>{maxCalorie}</span>
+            {t("maxCal")} <br /> <span>{maxCalorie.toFixed(1)}</span>
           </p>
         </div>
       </div>

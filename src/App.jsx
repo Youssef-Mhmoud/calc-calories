@@ -10,16 +10,14 @@ function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <>
-      <div className={`${theme ? "App dark" : "App"}`}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<UserForm />} />
-            <Route path="/user-data" element={<UserData />} />
-          </Route>
-        </Routes>
-      </div>
-    </>
+    <div className={`${theme ? "App dark" : "App"}`}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<UserForm />} />
+          <Route path="/user-data" element={<UserData />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 
