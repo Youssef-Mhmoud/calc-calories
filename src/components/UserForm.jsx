@@ -110,7 +110,6 @@ const UserForm = () => {
           <h2 htmlFor="gender">{t("Gender")}</h2>
           <div className="gender__box">
             <div>
-              <label htmlFor="man">{t("Man")}</label>
               <input
                 type="radio"
                 id="man"
@@ -118,9 +117,9 @@ const UserForm = () => {
                 value="man"
                 onChange={(e) => setGender(e.target.value)}
               />
+              <label htmlFor="man">{t("Man")}</label>
             </div>
             <div>
-              <label htmlFor="woman">{t("Woman")}</label>
               <input
                 type="radio"
                 id="woman"
@@ -128,6 +127,7 @@ const UserForm = () => {
                 value="woman"
                 onChange={(e) => setGender(e.target.value)}
               />
+              <label htmlFor="woman">{t("Woman")}</label>
             </div>
           </div>
         </div>
@@ -135,17 +135,17 @@ const UserForm = () => {
         <h2>{t("Exercise Intensity")}</h2>
         <div className="activity-form">
           <div>
-            <label htmlFor="inactive">{t("Sedentary or Inactive")}</label>
             <input
+              // checked
               type="radio"
               id="inactive"
               value="inactive"
               name="activity"
               onChange={(e) => setActivity(e.target.value)}
             />
+            <label htmlFor="inactive">{t("Sedentary or Inactive")}</label>
           </div>
           <div>
-            <label htmlFor="light_active">{t("Lightly Active")}</label>
             <input
               type="radio"
               id="light_active"
@@ -153,9 +153,9 @@ const UserForm = () => {
               name="activity"
               onChange={(e) => setActivity(e.target.value)}
             />
+            <label htmlFor="light_active">{t("Lightly Active")}</label>
           </div>
           <div>
-            <label htmlFor="moderately_active">{t("Moderately Active")}</label>
             <input
               type="radio"
               id="moderately_active"
@@ -163,9 +163,9 @@ const UserForm = () => {
               name="activity"
               onChange={(e) => setActivity(e.target.value)}
             />
+            <label htmlFor="moderately_active">{t("Moderately Active")}</label>
           </div>
           <div>
-            <label htmlFor="heavily_active">{t("Heavily Active")}</label>
             <input
               type="radio"
               id="heavily_active"
@@ -173,6 +173,7 @@ const UserForm = () => {
               name="activity"
               onChange={(e) => setActivity(e.target.value)}
             />
+            <label htmlFor="heavily_active">{t("Heavily Active")}</label>
           </div>
         </div>
         <button type="submit" className="btn btn__submit">
