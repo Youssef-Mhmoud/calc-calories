@@ -11,7 +11,7 @@ const UserForm = () => {
   const [gender, setGender] = useState();
   const [activity, setActivity] = useState();
 
-  const { bmr, setName, setBMR, setMinCalorie, setMaxCalorie } =
+  const { setName, setBMR, setMinCalorie, setMaxCalorie } =
     useContext(UserContext);
 
   const navigate = useNavigate();
@@ -176,7 +176,7 @@ const UserForm = () => {
           </div>
         </div>
         <button type="submit" className="btn btn__submit">
-          Submit
+          {t("Submit")}
         </button>
       </form>
       <LoaderPage />
