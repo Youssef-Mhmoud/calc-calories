@@ -4,8 +4,16 @@
   height: 100vh;
 
   transition: 0.3s;
+
+  * {
+    color: #101213;
+  }
 }
 
 .dark {
   background-color: #0e3143;
+
+  * {
+    color: #fff;
+  }
 }
