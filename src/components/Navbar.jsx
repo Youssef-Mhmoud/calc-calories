@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  const [, i18n] = useTranslation();
+  const [t, i18n] = useTranslation();
 
   const changeTheme = () => {
     setTheme((prevTheme) => !prevTheme);
@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <header className="header">
       <div className="logo">
-        <h1>GYM LOGO</h1>
+        <h1>{t("BE FITNESS")}</h1>
       </div>
       <nav className="navbar">
         <ul className="navbar__links">
