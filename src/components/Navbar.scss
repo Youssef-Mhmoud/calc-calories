@@ -4,7 +4,8 @@
   justify-content: space-between;
 
   padding: 10px 32px;
-  background-color: #144c66;
+  background-color: #ffffff;
+  box-shadow: 0px 6px 17px rgb(34 29 29 / 16%);
 
   .logo {
     a {
@@ -12,7 +13,7 @@
     }
 
     h1 {
-      color: #fff;
+      color: #1e1e1e;
     }
   }
 
@@ -69,6 +70,10 @@
 }
 
 // Dark Mode
-// .dark .header {
-//   background-color: red;
-// }
+.dark .header {
+  background-color: #144c66;
+
+  h1 {
+    color: #fff;
+  }
+}

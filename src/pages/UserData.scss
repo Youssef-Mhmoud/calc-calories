@@ -1,2 +1,88 @@
-h2 {
+.msg__details {
+  text-align: center;
+  .msg_name {
+    margin: 30px auto;
+    text-align: center;
+    font-size: 25px;
+    width: fit-content;
+
+    border-bottom: 2px solid;
+    padding: 8px;
+    border-radius: 9px;
+
+    .App & {
+      border-bottom: 2px solid #585858;
+    }
+
+    .dark & {
+      border-bottom: 2px solid #00b0da;
+    }
+
+    .user__name {
+      font-size: 28px;
+      font-weight: 700;
+    }
+  }
+
+  .bmr {
+    font-size: 24px;
+
+    span {
+      background-color: #fff;
+      color: #1e1e1e;
+      padding: 0 8px;
+      border-radius: 9px;
+      font-weight: 800;
+    }
+  }
+
+  .cal__box {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+
+    gap: 36px;
+
+    font-size: 24px;
+
+    .min__cal {
+      box-shadow: 0px 2px 17px rgba(30, 30, 30, 0.3);
+      border-radius: 9px;
+      padding: 20px;
+    }
+
+    .max__cal {
+      box-shadow: 0px 2px 17px rgba(30, 30, 30, 0.3);
+      border-radius: 9px;
+      padding: 20px;
+    }
+
+    span {
+      display: block;
+      margin-top: 10px;
+      background-color: #fff;
+      color: #1e1e1e;
+      padding: 0 2px;
+      border-radius: 9px;
+      font-weight: 800;
+
+      .App & {
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      .dark & {
+        background-color: #fff;
+
+        color: #000;
+      }
+    }
+
+    // Responsive
+    @media (max-width: 768px) {
+      padding-top: 30px;
+      border-top: 1px solid #0000008b;
+      flex-direction: column;
+    }
+  }
 }

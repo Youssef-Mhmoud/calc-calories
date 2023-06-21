@@ -1,3 +1,12 @@
 {
-  "title": "Calculate your calories "
+  "title": "Calculate your calories ",
+  "Sedentary or Inactive": "Little activity, such as: work on the computer",
+  "Lightly Active": "Routine activity, such as: going to university or walking to work",
+  "Moderately Active": "High activity, such as: walking for an hour daily or riding a bike",
+  "Heavily Active": "Very high activity and effort, such as: exercising in the gym 5 times a week",
+  "Thank You": "Thank You",
+  "for": "for using our service ",
+  "bmr": "Your BMR(The basal metabolic rate)",
+  "minCal": "Your minimum calorie",
+  "maxCal": "Your maximum calorie"
 }

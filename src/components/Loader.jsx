@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Loader from "react-loaders";
+import "./Loader.scss";
 
 const LoaderPage = () => {
   const [zIndex, setZIndex] = useState();
