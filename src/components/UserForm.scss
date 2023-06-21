@@ -9,15 +9,15 @@
   font-size: 32px;
 
   .App & {
-    border: 2px solid #585858;
+    border-bottom: 2px solid #585858;
   }
 
   .dark & {
-    border: 2px solid #00b0da;
+    border-bottom: 2px solid #00b0da;
   }
 }
 
-.form {
+.App .form {
   text-align: center;
 
   .user__name {
@@ -38,10 +38,8 @@
 
       border-radius: 9px;
       background: none;
-      border: 2px solid #00b0da;
+      border: 2px solid #0f5b7d;
       outline: none;
-
-      // color: #fff;
     }
   }
 
@@ -60,10 +58,8 @@
       font-weight: 600;
       border-radius: 9px;
       background: none;
-      border: 2px solid #00b0da;
+      border: 2px solid #0f5b7d;
       outline: none;
-
-      // color: #fff;
     }
   }
 
@@ -88,6 +84,7 @@
 
   .activity-form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 20px;
 
@@ -116,6 +113,20 @@
     transition: all 0.3s;
     &:hover {
       background-color: #0f5b7d;
+    }
+  }
+}
+
+.dark .form {
+  .user__name {
+    input {
+      border: 2px solid #00b0da;
+    }
+  }
+
+  .weight-form {
+    input {
+      border: 2px solid #00b0da;
     }
   }
 }

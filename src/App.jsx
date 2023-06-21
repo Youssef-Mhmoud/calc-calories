@@ -3,7 +3,10 @@ import "./App.scss";
 import { useContext } from "react";
 import { ThemeContext } from "./context/theme-context";
 import { LoaderContext } from "./context/loader-context";
-import UserData from "./components/UserData";
+import UserForm from "./components/UserForm";
+import { Route, Routes } from "react-router-dom";
+import UserData from "./pages/UserData";
+import Layout from "./components/layout";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -12,8 +15,12 @@ function App() {
   return (
     <>
       <div className={`${theme ? "App dark" : "App"}`}>
-        <Navbar />
-        <UserData />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<UserForm />} />
+            <Route path="/user-data" element={<UserData />} />
+          </Route>
+        </Routes>
       </div>
       {loader && <div className="loader">Loading...</div>}
     </>
