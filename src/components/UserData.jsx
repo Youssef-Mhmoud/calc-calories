@@ -8,14 +8,16 @@ const UserData = () => {
       <h2 className="title">{t("title")}</h2>
       <form action="" className="form">
         {/* User Name */}
-        <div>
+        <div className="user__name">
           <label htmlFor="username">{t("Name")}</label>
+          <br />
           <input type="text" id="username" />
         </div>
         {/* BMR for men weight X 1 X 24*/}
         {/* BMR for women weight X .9 X 24*/}
-        <div>
+        <div className="weight-form">
           <label htmlFor="weight">{t("Your Weight")}</label>
+          <br />
           <input type="number" step="0.1" id="weight" />
         </div>
         {/* Gender */}
@@ -36,18 +38,21 @@ const UserData = () => {
         <h2>{t("Exercise Intensity")}</h2>
         <div className="activity-form">
           <div>
-            <input type="radio" id="little" value="little" name="activity" />
             <label htmlFor="little">LITTLE</label>
+            <input type="radio" id="little" value="little" name="activity" />
           </div>
           <div>
-            <input type="radio" id="middle" value="middle" name="activity" />
             <label htmlFor="middle">LITTLE</label>
+            <input type="radio" id="middle" value="middle" name="activity" />
           </div>
           <div>
-            <input type="radio" id="high" value="high" name="activity" />
             <label htmlFor="high">LITTLE</label>
+            <input type="radio" id="high" value="high" name="activity" />
           </div>
         </div>
+        <button type="submit" className="btn btn__submit">
+          Submit
+        </button>
       </form>
     </>
   );

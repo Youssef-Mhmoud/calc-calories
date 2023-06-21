@@ -1,19 +1,33 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ThemeContext } from "../context/theme-context";
 import "./Navbar.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
+import { LoaderContext } from "../context/loader-context";
 
 const Navbar = () => {
   const { theme, setTheme } = useContext(ThemeContext);
+  const { loader, setLoader } = useContext(LoaderContext);
   const [t, i18n] = useTranslation();
+
+  const changeLanguage = () => {
+    setLoader((prevLoader) => !prevLoader);
+  };
+
+  useEffect(() => {
+    if (loader === true) {
+      setTimeout(() => {
+        setLoader((prevLoader) => !prevLoader);
+      }, 1000);
+    }
+  }, [loader, setLoader]);
 
   const changeTheme = () => {
     setTheme((prevTheme) => !prevTheme);
   };
   return (
-    <header className="header">
+    <header className={`header ${i18n.language === "ar" && "rtl"}`}>
       <div className="logo">
         <h1>{t("BE FITNESS")}</h1>
       </div>
@@ -23,6 +37,7 @@ const Navbar = () => {
             {i18n.language === "en" && (
               <button
                 onClick={() => {
+                  changeLanguage();
                   i18n.changeLanguage("ar");
                 }}
                 className="btn__lang"
@@ -33,6 +48,7 @@ const Navbar = () => {
             {i18n.language === "ar" && (
               <button
                 onClick={() => {
+                  changeLanguage();
                   i18n.changeLanguage("en");
                 }}
                 className="btn__lang"

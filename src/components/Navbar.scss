@@ -6,6 +6,10 @@
   padding: 10px 32px;
   background-color: #144c66;
 
+  &.rtl {
+    flex-direction: row-reverse;
+  }
+
   .logo {
     h1 {
       color: #fff;

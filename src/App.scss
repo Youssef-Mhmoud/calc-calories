@@ -17,3 +17,19 @@
     color: #fff;
   }
 }
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0e3143;
+  height: 100vh;
+  width: 100wh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 64px;
+}
