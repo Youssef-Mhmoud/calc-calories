@@ -11,7 +11,7 @@ const UserForm = () => {
   const [gender, setGender] = useState();
   const [activity, setActivity] = useState();
 
-  const { setName, setBMR, setMinCalorie, setMaxCalorie } =
+  const { bmr, setName, setBMR, setMinCalorie, setMaxCalorie } =
     useContext(UserContext);
 
   const navigate = useNavigate();
@@ -19,50 +19,53 @@ const UserForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    const calcBMRMen = +weight * 1 * 24;
+    const calcBMRWomen = +weight * 0.9 * 24;
+
     // Calculate The BMR for the Men
     switch (gender) {
       case "man":
-        setBMR(() => +weight * 1 * 24);
+        setBMR(() => calcBMRMen);
         break;
       case "woman":
-        setBMR(() => +weight * 0.9 * 24);
+        setBMR(() => calcBMRMen);
         break;
     }
 
     // For Men
     if (gender === "man" && activity === "inactive") {
-      setMinCalorie(+weight * 1 * 24 * 0.25);
-      setMaxCalorie(+weight * 1 * 24 * 0.4);
+      setMinCalorie(calcBMRMen * 0.25 + calcBMRMen);
+      setMaxCalorie(calcBMRMen * 0.4 + calcBMRMen);
     }
     if (gender === "man" && activity === "light_active") {
-      setMinCalorie(+weight * 1 * 24 * 0.5);
-      setMaxCalorie(+weight * 1 * 24 * 0.7);
+      setMinCalorie(calcBMRMen * 0.5 + calcBMRMen);
+      setMaxCalorie(calcBMRMen * 0.7 + calcBMRMen);
     }
     if (gender === "man" && activity === "moderately_active") {
-      setMinCalorie(+weight * 1 * 24 * 0.65);
-      setMaxCalorie(+weight * 1 * 24 * 0.8);
+      setMinCalorie(calcBMRMen * 0.65 + calcBMRMen);
+      setMaxCalorie(calcBMRMen * 0.8 + calcBMRMen);
     }
     if (gender === "man" && activity === "heavily_active") {
-      setMinCalorie(+weight * 1 * 24 * 0.9);
-      setMaxCalorie(+weight * 1 * 24 * 1.2);
+      setMinCalorie(calcBMRMen * 0.9 + calcBMRMen);
+      setMaxCalorie(calcBMRMen * 1.2 + calcBMRMen);
     }
 
     // For Woman
     if (gender === "woman" && activity === "inactive") {
-      setMinCalorie(+weight * 0.9 * 24 * 0.25);
-      setMaxCalorie(+weight * 0.9 * 24 * 0.35);
+      setMinCalorie(calcBMRWomen * 0.25 + calcBMRWomen);
+      setMaxCalorie(calcBMRWomen * 0.35 + calcBMRWomen);
     }
     if (gender === "woman" && activity === "light_active") {
-      setMinCalorie(+weight * 0.9 * 24 * 0.4);
-      setMaxCalorie(+weight * 0.9 * 24 * 0.6);
+      setMinCalorie(calcBMRWomen * 0.4 + calcBMRWomen);
+      setMaxCalorie(calcBMRWomen * 0.6 + calcBMRWomen);
     }
     if (gender === "woman" && activity === "moderately_active") {
-      setMinCalorie(+weight * 0.9 * 24 * 0.5);
-      setMaxCalorie(+weight * 0.9 * 24 * 0.7);
+      setMinCalorie(calcBMRWomen * 0.5 + calcBMRWomen);
+      setMaxCalorie(calcBMRWomen * 0.7 + calcBMRWomen);
     }
     if (gender === "woman" && activity === "heavily_active") {
-      setMinCalorie(+weight * 0.9 * 24 * 0.8);
-      setMaxCalorie(+weight * 0.9 * 24 * 1);
+      setMinCalorie(calcBMRWomen * 0.8 + calcBMRWomen);
+      setMaxCalorie(calcBMRWomen * 1 + calcBMRWomen);
     }
 
     navigate("/user-data");
