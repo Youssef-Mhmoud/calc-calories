@@ -11,28 +11,19 @@ const UserForm = () => {
   const [gender, setGender] = useState();
   const [activity, setActivity] = useState();
 
-  const { setName, setBMR, setMinCalorie, setMaxCalorie } =
+  const [validName, setValidName] = useState(false);
+  const [validWeight, setValidWeight] = useState(false);
+  const [validGender, setValidGender] = useState(false);
+  const [validActivity, setValidActivity] = useState(false);
+
+  const { name, setName, setBMR, setMinCalorie, setMaxCalorie } =
     useContext(UserContext);
 
   const navigate = useNavigate();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
+  const calcCaloriesForMen = () => {
     const calcBMRMen = +weight * 1 * 24;
-    const calcBMRWomen = +weight * 0.9 * 24;
 
-    // Calculate The BMR for the Men
-    switch (gender) {
-      case "man":
-        setBMR(() => calcBMRMen);
-        break;
-      case "woman":
-        setBMR(() => calcBMRMen);
-        break;
-    }
-
-    // For Men
     if (gender === "man" && activity === "inactive") {
       setMinCalorie(calcBMRMen * 0.25 + calcBMRMen);
       setMaxCalorie(calcBMRMen * 0.4 + calcBMRMen);
@@ -49,8 +40,11 @@ const UserForm = () => {
       setMinCalorie(calcBMRMen * 0.9 + calcBMRMen);
       setMaxCalorie(calcBMRMen * 1.2 + calcBMRMen);
     }
+  };
 
-    // For Woman
+  const calcCaloriesForWoman = () => {
+    const calcBMRWomen = +weight * 0.9 * 24;
+
     if (gender === "woman" && activity === "inactive") {
       setMinCalorie(calcBMRWomen * 0.25 + calcBMRWomen);
       setMaxCalorie(calcBMRWomen * 0.35 + calcBMRWomen);
@@ -67,8 +61,60 @@ const UserForm = () => {
       setMinCalorie(calcBMRWomen * 0.8 + calcBMRWomen);
       setMaxCalorie(calcBMRWomen * 1 + calcBMRWomen);
     }
+  };
 
-    navigate("/user-data");
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const calcBMRMen = +weight * 1 * 24;
+    const calcBMRWomen = +weight * 0.9 * 24;
+
+    // Calculate The BMR
+    switch (gender) {
+      case "man":
+        setBMR(() => calcBMRMen);
+        break;
+      case "woman":
+        setBMR(() => calcBMRWomen);
+        break;
+    }
+
+    // For Men
+    calcCaloriesForMen();
+
+    // For Woman
+    calcCaloriesForWoman();
+
+    // Check Inputs
+    if (!name) {
+      setValidName(true);
+    } else {
+      setValidName(false);
+    }
+
+    if (!weight) {
+      setValidWeight(true);
+    } else {
+      setValidWeight(false);
+    }
+
+    if (!gender) {
+      setValidGender(true);
+    } else {
+      setValidGender(false);
+    }
+
+    if (!activity) {
+      setValidActivity(true);
+    } else {
+      setValidActivity(false);
+    }
+
+    if (name && weight && activity && gender) {
+      navigate("/user-data");
+      setName("");
+      setWeight("");
+    }
   };
 
   return (
@@ -91,6 +137,9 @@ const UserForm = () => {
             id="username"
             onChange={(e) => setName(e.target.value)}
           />
+          {validName && (
+            <small className="warning__msg">{t("validName")}</small>
+          )}
         </div>
         {/* BMR for men weight X 1 X 24*/}
         {/* BMR for women weight X .9 X 24*/}
@@ -104,6 +153,9 @@ const UserForm = () => {
             id="weight"
             onChange={(e) => setWeight(e.target.value)}
           />
+          {validWeight && (
+            <small className="warning__msg">{t("validWeight")}</small>
+          )}
         </div>
         {/* Gender */}
         <div className="gender-form">
@@ -130,6 +182,9 @@ const UserForm = () => {
               <label htmlFor="woman">{t("Woman")}</label>
             </div>
           </div>
+          {validGender && (
+            <small className="warning__msg">{t("validGender")}</small>
+          )}
         </div>
         {/* Level of Activity */}
         <h2>{t("Exercise Intensity")}</h2>
@@ -175,6 +230,9 @@ const UserForm = () => {
             />
             <label htmlFor="heavily_active">{t("Heavily Active")}</label>
           </div>
+          {validActivity && (
+            <small className="warning__msg">{t("validActivity")}</small>
+          )}
         </div>
         <button type="submit" className="btn btn__submit">
           {t("Submit")}
